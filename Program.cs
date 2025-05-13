@@ -26,12 +26,12 @@ while(commandsGiven < 3)
         Console.WriteLine($"{i}: {commands[i]}");
     }
 
-    string? choice;
+    string choice;
     bool isValid = false;
     do
     {
         Console.WriteLine($"Enter a number from 0 to {commands.Length - 1}");
-        choice = Console.ReadLine();
+        choice = Console.ReadLine() ?? "6";
         if (int.TryParse(choice, out int input) && input >= 0 && input < commands.Length)
         {
             if (commands[input].ToString() == "None")
