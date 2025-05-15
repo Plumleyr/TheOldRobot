@@ -4,7 +4,7 @@ Robot robot = new(0, 0, false);
 
 Commands[] commands = (Commands[])Enum.GetValues(typeof(Commands));
 
-List<RobotCommand> commandMethods =
+List<IRobotCommand> commandMethods =
 [
     new OnCommand(),
     new OffCommand(),
@@ -42,7 +42,7 @@ while(commandsGiven < 3)
             }
             else
             {
-                foreach (RobotCommand command in commandMethods)
+                foreach (IRobotCommand command in commandMethods)
                 {
                     if (commands[input].ToString() == command.ToString())
                     {

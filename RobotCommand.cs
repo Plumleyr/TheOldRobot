@@ -7,55 +7,55 @@ using System.Threading.Tasks;
 namespace TheOldRobot
 {
     // going to put all the derived classes in the same file because they're very small operations
-    public abstract class RobotCommand
+    public interface IRobotCommand
     {
-        public abstract void Run(Robot robot);
+       void Run(Robot robot);
     }
 
-    public class OnCommand() : RobotCommand()
+    public class OnCommand : IRobotCommand
     {
-        public override void Run(Robot robot)
+        public void Run(Robot robot)
         {
             robot.IsPowered = true;
         }
         public override string ToString() => "On";
     }
-    public class OffCommand() : RobotCommand()
+    public class OffCommand : IRobotCommand
     {
-        public override void Run(Robot robot)
+        public void Run(Robot robot)
         {
             robot.IsPowered = false;
         }
         public override string ToString() => "Off";
     }
 
-    public class NorthCommand() : RobotCommand()
+    public class NorthCommand : IRobotCommand
     {
-        public override void Run(Robot robot)
+        public void Run(Robot robot)
         {
             if (robot.IsPowered) robot.Y++;
         }
         public override string ToString() => "North";
     }
-    public class SouthCommand() : RobotCommand()
+    public class SouthCommand : IRobotCommand
     {
-        public override void Run(Robot robot)
+        public void Run(Robot robot)
         {
             if (robot.IsPowered) robot.Y--;
         }
         public override string ToString() => "South";
     }
-    public class WestCommand() : RobotCommand()
+    public class WestCommand : IRobotCommand
     {
-        public override void Run(Robot robot)
+        public void Run(Robot robot)
         {
             if (robot.IsPowered) robot.X--;
         }
         public override string ToString() => "West";
     }
-    public class EastCommand() : RobotCommand()
+    public class EastCommand : IRobotCommand
     {
-        public override void Run(Robot robot)
+        public void Run(Robot robot)
         {
             if (robot.IsPowered) robot.X++;
         }
